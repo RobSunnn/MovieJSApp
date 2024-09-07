@@ -10,3 +10,5 @@ class Movie {
     description;
 
 }
+
+module.exports = { Movie }
