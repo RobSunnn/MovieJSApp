@@ -24,7 +24,19 @@ async function getMovieById(id) {
     return movie ? toMovieModel(movie) : movie;
 }
 
+async function findMovieBySearchTerm(data) {
+    const allMovies = Object.values(await getAllMovies());
+
+    for (const movie of allMovies) {
+        if (movie.title === data) {
+            return movie;
+        }
+    }
+
+}
+
 async function createMovie(movieData) {
+
     const moviesDatabase = await readFile();
     const id = moviesDatabase.length + 1;
 
@@ -37,7 +49,6 @@ async function createMovie(movieData) {
         imageUrl: movieData.imageUrl,
         rating: Number(movieData.rating),
         description: movieData.description
-
     }
 
     moviesDatabase.push(movie);
@@ -65,5 +76,6 @@ function toMovieModel(data) {
 module.exports = {
     getAllMovies,
     getMovieById,
-    createMovie
+    createMovie,
+    findMovieBySearchTerm
 };
