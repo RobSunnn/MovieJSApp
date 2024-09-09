@@ -18,7 +18,12 @@
                 </div>
 
                 <p class="disc">{{movie.description}}</p>
+                <form action="/deleteMovie" method="POST">
+                    <input type="hidden" class="inputFields" name="id" value="{{movie._id}}" />
+                    <button class="details" type="submit">Delete Movie</button>
+                </form>
             </div>
+
         </div>
         <div class="card_right">
             <img src="{{movie.imageUrl}}" alt="image">
@@ -29,7 +34,7 @@
         {{#each allCast}}
         {{> cast-details}}
         {{else}}
-         <!-- If there are still no posts in the database display: -->
+        <!-- If there are still no posts in the database display: -->
         <div class="no-posts">
             <p class="no-offer">There are no cast yet...</p>
         </div>

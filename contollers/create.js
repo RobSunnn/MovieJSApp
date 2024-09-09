@@ -1,4 +1,4 @@
-const { createMovie } = require("../service/movie");
+const { createMovie, deleteMovie } = require("../service/movie");
 
 module.exports = {
     createGet: (req, res) => {
@@ -26,5 +26,12 @@ module.exports = {
 
         const result = await createMovie(req.body);
         res.redirect('/details/' + result._id);
+    }, 
+    deleteMovie: async (req, res) => {
+         const movieId = req.body.id;
+        
+         await deleteMovie(movieId);
+
+         res.redirect('/');
     }
 };

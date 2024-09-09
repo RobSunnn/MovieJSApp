@@ -51,10 +51,15 @@ async function createMovie(movieData) {
     return movie;
 }
 
+async function deleteMovie(id) {
+    const movie = await Movie.findOneAndDelete(id);
+}
+
 module.exports = {
     getAllMovies,
     getMovieById,
     createMovie,
     findMovieBySearchTerm,
-    attachCastToMovie
+    attachCastToMovie,
+    deleteMovie
 };

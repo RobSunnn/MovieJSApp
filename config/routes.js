@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { homeController, details, attachActorToMovieGet, attachActorToMoviePost } = require('../contollers/home');
-const { createGet, createPost } = require('../contollers/create');
+const { createGet, createPost, deleteMovie } = require('../contollers/create');
 const { aboutController } = require('../contollers/about');
 const { searchGet, searchPost } = require('../contollers/search');
 const { notFound } = require('../contollers/error');
@@ -16,6 +16,7 @@ router.get('/create/cast', castGet);
 router.post('/create/cast', castPost);
 router.get('/attachActor/:id', attachActorToMovieGet);
 router.post('/attachActor/:id', attachActorToMoviePost);
+router.post('/deleteMovie', deleteMovie);
 router.get('/about', aboutController);
 router.get('/search', searchGet);
 router.post('/search', searchPost)

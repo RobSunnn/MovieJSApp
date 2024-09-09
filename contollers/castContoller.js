@@ -6,7 +6,6 @@ module.exports = {
     },
     castPost: async (req, res) => {
         const castData = req.body;
-        console.log(castData)
 
         const result = await createCast(castData);
 
